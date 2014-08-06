@@ -1,5 +1,6 @@
 
 local Player = import("..roles.Player")
+local Enemy = import("..roles.Enemy")
 
 local MainScene = class("MainScene", function()
     return display.newScene("MainScene")
@@ -16,6 +17,10 @@ function MainScene:ctor()
 	self.player = Player.new()
 	self.player:setPosition(display.left+self.player:getContentSize().display.width/2,display.cy)
 	self:addChild(self.player)
+
+	self.enemy = Enemy:new()
+	self.enemy:setPosition(display.right - self.enemy:getContentSize().width/2, display.cy)
+	self:addChild(self.enemy)
 
 end
 
